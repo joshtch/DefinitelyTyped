@@ -1684,6 +1684,12 @@ export function scan<T, TResult>(fn: (acc: TResult, elem: T) => any, acc: TResul
 export function scan<T, TResult>(fn: (acc: TResult, elem: T) => any): (acc: TResult, list: readonly T[]) => TResult[];
 
 /**
+ * Transforms a Traversable of Applicative into an Applicative of Traversable.
+ */
+export function sequence<A>(of: (a: A) => A[], list: readonly A[][]): A[][];
+export function sequence<A>(of: (a: A) => A[]): (list: readonly A[][]) => A[][];
+
+/**
  * Returns the result of "setting" the portion of the given data structure focused by the given lens to the
  * given value.
  */
